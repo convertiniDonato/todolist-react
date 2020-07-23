@@ -5,7 +5,7 @@ const Todo = (props) => {
     return (
         
         <li className='list-group-item mx-1 px-1 bg-secondary text-white border border-dark'>
-
+                
             {/* {props.content} */}
             <input type='text' className="bg-secondary border-0 inputTodo" value={props.content}
                 onChange={(e) => props.modifyTask(e.target.value, props.id)}

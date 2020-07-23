@@ -15,17 +15,19 @@ const TodoList = (props) => {
         return true;
     })
 
+    const isCompletato = (flag) =>{
+        return props.tasks.filter(task => task.completato === flag).length;
+    }
+
     return (
         <div className='list-group text-left my-3'>
             <hr className='border border-secondary mx-2'></hr>
-            <h6 className='mx-2 my-2 text-danger'><b>✘ to do:</b></h6>
+            <h6 className='mx-2 my-2 text-danger'><b>✘ to do: {isCompletato(false)}</b></h6>
             {todos}
             <hr className='border border-secondary mx-2'></hr>
-            <h6 className='mx-2 my-2 text-success'><b>✔ done:</b></h6>
+            <h6 className='mx-2 my-2 text-success'><b>✔ done: {isCompletato(true)}</b></h6>
             {marked}
             <hr className='border border-secondary mx-2'></hr>
-
-
         </div>
     )
 }
