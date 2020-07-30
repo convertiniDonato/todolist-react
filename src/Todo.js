@@ -1,35 +1,28 @@
 import React from 'react';
+import { ListGroup, Button, InputGroup, Form } from 'react-bootstrap';
 
 const Todo = (props) => {
 
     return (
-        
-        <li className='list-group-item mx-1 px-1 bg-secondary text-white border border-dark'>
-                
-            {/* {props.content} */}
-            <input type='text' className="bg-secondary border-0 inputTodo" value={props.content}
-                onChange={(e) => props.modifyTask(e.target.value, props.id)}
-                onKeyDown={(e)=>{if (e.keyCode === 13) e.target.blur()}} //premendo Enter si leva il focus input
-                style={{ textDecoration: props.flag ? 'line-through' : '' }}>
-            </input>
+        <ListGroup.Item className='bg-secondary mx-2 px-1 py-1 text-white border border-dark' >
 
-            <input type="checkbox" className="checkBox float-left mx-1 my-2" defaultChecked={props.flag ? true : false}
-                onClick={() => { props.changeFlag(props.id) }}>
-            </input>
+            <InputGroup>
 
-            <button className='btn btn-danger float-right py-0 deleteButton' 
-                onClick={() => { props.onDelete(props.id) }}>
-                    <b>✖</b>
-            </button>
+                <InputGroup.Checkbox className='mx-1' defaultChecked={props.flag ? true : false}
+                    onClick={() => { props.changeFlag(props.id) }} />
 
-            {/* <button className={(props.flag === true) ? 'btn btn-success float-right py-0 mx-2' : 'btn btn-primary float-right py-0 mx-2'}
-                onClick={() => { props.changeFlag(props.id) }}>
+                <Form.Control type='text' className='bg-secondary px-1 border-0 text-white inputTodo' value={props.content}
+                    onChange={(e) => props.modifyTask(e.target.value, props.id)}
+                    onKeyDown={(e) => { if (e.keyCode === 13) e.target.blur() }} //premendo Enter si leva il focus input
+                    style={{ textDecoration: props.flag ? 'line-through' : '' }} />
 
-                {(props.flag === true) ? 'completato' : 'incompleto'}
+                <Button size='sm' variant='danger' className='float-right mx-1 deleteButton'
+                    onClick={() => { props.onDelete(props.id) }} > <b>✖</b>
+                </Button>
+                    
+            </InputGroup>
 
-            </button> */}
-
-        </li>
+        </ListGroup.Item>
     )
 }
 

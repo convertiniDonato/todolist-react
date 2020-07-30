@@ -3,19 +3,30 @@
   min-height: 100vh;
 }
 
-.inputTodo {
-  outline: none; /*elimino bordi input sul focus*/
+input.inputTodo.form-control {
+  box-shadow: none;
   font-weight: bold;
-  color: whitesmoke;
   width: 80%;
 }
 
-.deleteButton {
-  border-radius: 100%;
+button.deleteButton {
+  margin: 1%;
+  border-radius: 90%;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
 hr.linea{
   border: 2px solid whitesmoke;
   width: -webkit-fill-available;
   border-style: dashed;
+}
+
+/*elimina bordi checkbox*/
+span.input-group-text{
+  padding: 0%;
+  border: none;
+  background-color: transparent;
 }

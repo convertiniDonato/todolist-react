@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Form, Button, InputGroup } from 'react-bootstrap';
 
 //trasformo in function component usando State Hook per il campo di input
 
@@ -12,20 +13,35 @@ const SubmitForm = (props) => {
         props.onFormSubmit(testo);
         setTesto(''); //resetto a testo vuoto il campo di input
     }
- 
+
     return (
-        <form onSubmit={handleSubmit}>
-            <div className='form-group text-center'>
-                <input
-                    type='text'
-                    className='mr-2 py-1'
-                    placeholder='Inserisci Todo...'
+        <Form onSubmit={handleSubmit} className='text-center mb-3'>
+
+            <InputGroup className='px-5'>
+
+                <Form.Control type='text' placeholder='Inserisci Todo...' className='mr-1'
                     value={testo}
-                    onChange={(e) => setTesto(e.target.value)}
-                />
-                <button type='submit' className='btn btn-primary mb-2 mt-1'><b>Inserisci</b></button>
-            </div>
-        </form>
+                    onChange={(e) => setTesto(e.target.value)} />
+
+                <Button variant='primary' type='submit'>
+                    <b>Inserisci</b>
+                </Button>
+
+            </InputGroup>
+        </Form>
+
+        // <form onSubmit={handleSubmit}>
+        //     <div className='form-group text-center'>
+        //         <input
+        //             type='text'
+        //             className='mr-2 py-1'
+        //             placeholder='Inserisci Todo...'
+        //             value={testo}
+        //             onChange={(e) => setTesto(e.target.value)}
+        //         />
+        //         <button type='submit' className='btn btn-primary mb-2 mt-1'><b>Inserisci</b></button>
+        //     </div>
+        // </form>
     );
 
 
